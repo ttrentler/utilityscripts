@@ -17,7 +17,12 @@ pdfWriter = PyPDF4.PdfFileWriter()
 for filename in pdfFiles:
     pdfFileObj = open(filename, 'rb')
     pdfReader = PyPDF4.PdfFileReader(pdfFileObj)
-# Loop through all the pages (sarting at zero) and add them.
+'''
+# Loop through all the pages (starting at zero) and add them. 
+If you change this to a one you can omit the first page of every PDF 
+(useful to remove cover pages)
+
+'''
     for pageNum in range(0, pdfReader.numPages):
         pageObj = pdfReader.getPage(pageNum)
         pdfWriter.addPage(pageObj)
